@@ -1,0 +1,77 @@
+:root {
+	color-scheme: light;
+	--text: #1c1917;
+	--muted: #57534e;
+	--line: #e7e5e4;
+	--bg: #fafaf9;
+	--accent: #1d4ed8;
+	font-family: "Segoe UI", system-ui, sans-serif;
+	line-height: 1.5;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+}
+
+a {
+	color: var(--accent);
+}
+
+.site-header,
+main {
+	width: min(40rem, calc(100% - 2rem));
+	margin-inline: auto;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: 1.25rem;
+	border-bottom: 1px solid var(--line);
+}
+
+.site-title {
+	color: inherit;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+nav {
+	display: flex;
+	gap: 1rem;
+}
+
+nav a {
+	color: inherit;
+	text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+main {
+	padding-block: 3rem 4rem;
+}
+
+h1 {
+	margin: 0 0 0.5rem;
+	font-size: 2.25rem;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+.lede {
+	margin: 0;
+	max-width: 36rem;
+	color: var(--muted);
+	font-size: 1.125rem;
+}
