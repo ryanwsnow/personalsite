@@ -234,6 +234,12 @@ h1 {
 	color: var(--body);
 }
 
+.project p a {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
 .project-title {
 	display: flex;
 	align-items: center;
@@ -256,8 +262,7 @@ h1 {
 
 .project-image {
 	display: block;
-	width: 300px;
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 }
 
@@ -369,6 +374,12 @@ h1 {
 	width: 24px;
 	height: 24px;
 	margin: 8px;
+}
+
+.cv-intro a {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
 }
 
 .cv-intro,
