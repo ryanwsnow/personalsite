@@ -90,7 +90,6 @@ a:focus-visible {
 h1,
 .subhead,
 .name,
-.panel-heading,
 .career-header h2,
 .role-title,
 .role-meta,
@@ -154,17 +153,18 @@ h1 {
 	color: var(--body);
 }
 
-.link-list,
+.portrait {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 15px;
+}
+
 .link-row {
 	display: flex;
 	gap: 16px;
 }
 
-.link-list {
-	flex-direction: column;
-}
-
-.link-list a,
 .link-row a {
 	font-family: var(--serif);
 	font-size: 16px;
@@ -173,34 +173,8 @@ h1 {
 	text-underline-offset: 0.12em;
 }
 
-.panel-heading,
 .career-header h2 {
 	margin: 0;
-}
-
-.panel-heading {
-	font-size: 20px;
-	line-height: 28px;
-}
-
-.more-writing {
-	display: inline-flex;
-	align-items: center;
-	gap: 10px;
-	width: fit-content;
-	padding: 8px 16px;
-	border-radius: 5px;
-	background: var(--tag);
-	color: rgba(255, 255, 255, 0.5);
-	font-family: var(--sans);
-	font-size: 16px;
-	line-height: 24px;
-	text-decoration: none;
-}
-
-.more-writing img {
-	width: 17px;
-	height: 13px;
 }
 
 .section-mark,
@@ -321,6 +295,9 @@ h1 {
 .role-title a,
 .role-title span {
 	color: var(--text);
+}
+
+.role-title a {
 	text-decoration: underline;
 	text-underline-offset: 0.12em;
 }
@@ -380,6 +357,10 @@ h1 {
 .cv-company span,
 .cv-mention {
 	color: var(--text);
+}
+
+.cv-company a,
+.cv-mention {
 	text-decoration: underline;
 	text-underline-offset: 0.12em;
 }

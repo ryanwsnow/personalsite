@@ -114,10 +114,6 @@ const roles = [
 							thought about this, anticipated what they needed, and cared enough to get it right.
 						</p>
 					</div>
-					<a class="more-writing" href="#writing">
-						More writing
-						<img src={`${base}icon-arrow.svg`} width="17" height="13" alt="" />
-					</a>
 				</article>
 
 				<aside class="panel">
@@ -130,18 +126,13 @@ const roles = [
 							teams and design systems from scratch, and led both designers and product managers
 							while staying hands-on in product strategy and design.
 						</p>
-						<nav class="link-list" aria-label="Personal">
-							<a href="#about">About</a>
-							<a href="#writing">Writing</a>
-							<a href="#art">Art</a>
-						</nav>
-					</section>
-					<section class="panel-block">
-						<h2 class="panel-heading">Work</h2>
-						<nav class="link-list" aria-label="Work">
-							<a href="#work">Work</a>
-							<a href="/cv">CV</a>
-						</nav>
+						<img
+							class="portrait"
+							src={`${base}portrait.jpg`}
+							width="326"
+							height="518"
+							alt="Ryan William Snow sitting at a cafe"
+						/>
 					</section>
 				</aside>
 			</div>
@@ -153,8 +144,7 @@ const roles = [
 					<header class="career-header">
 						<h2 id="career-heading">Career Overview</h2>
 						<nav class="link-row" aria-label="Career">
-							<a href="#work">Work</a>
-							<a href="/cv">CV</a>
+							<a href="/cv">Check out my CV</a>
 						</nav>
 					</header>
 					{roles.map((role) => <CareerHighlight {...role} />)}
