@@ -1,5 +1,6 @@
 ---
 import CareerHighlight from "../components/CareerHighlight.astro";
+import Highlight from "../components/Highlight.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL;
@@ -55,7 +56,7 @@ const roles = [
 		],
 	},
 	{
-		company: "Consulting",
+		company: "Straight Line Phobia",
 		role: "Product Design consulting",
 		summary:
 			"Worked with early-stage companies to turn emerging ideas and customer needs into coherent products. Often operated as the entire design function, shaping product direction and designing workflows from initial concept through launch.",
@@ -70,7 +71,7 @@ const roles = [
 >
 	<div class="page">
 		<header class="page-header">
-			<img class="logo" src={`${base}logo.svg`} width="151" height="150" alt="Hazzini" />
+			<img class="logo" src={`${base}logo.svg`} width="151" height="144" alt="Hazzini" />
 		</header>
 
 		<main class="main-content">
@@ -113,6 +114,10 @@ const roles = [
 							thought about this, anticipated what they needed, and cared enough to get it right.
 						</p>
 					</div>
+					<a class="more-writing" href="#writing">
+						More writing
+						<img src={`${base}icon-arrow.svg`} width="17" height="13" alt="" />
+					</a>
 				</article>
 
 				<aside class="panel">
@@ -141,18 +146,62 @@ const roles = [
 				</aside>
 			</div>
 
-			<p class="divider" aria-hidden="true">***</p>
+			<Highlight class="section-mark" />
 
-			<section class="career" aria-labelledby="career-heading">
-				<header class="career-header">
-					<h2 id="career-heading">Career Overview</h2>
-					<nav class="link-row" aria-label="Career">
-						<a href="#work">Work</a>
-						<a href="#cv">CV</a>
-					</nav>
-				</header>
-				{roles.map((role) => <CareerHighlight {...role} />)}
-			</section>
+			<div class="career-layout">
+				<section class="career" aria-labelledby="career-heading">
+					<header class="career-header">
+						<h2 id="career-heading">Career Overview</h2>
+						<nav class="link-row" aria-label="Career">
+							<a href="#work">Work</a>
+							<a href="#cv">CV</a>
+						</nav>
+					</header>
+					{roles.map((role) => <CareerHighlight {...role} />)}
+				</section>
+
+				<aside class="projects">
+					<header class="projects-intro">
+						<h2>Projects</h2>
+						<p>Various side projects of note.</p>
+					</header>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://missive.to" target="_blank" rel="noreferrer">Missive</a>
+							<img src={`${base}icon-open.svg`} width="16" height="16" alt="" />
+						</h3>
+						<p>
+							Designed and built Missive with Anson, an experiment in slower, more intentional
+							digital communication that borrows the rituals and anticipation of physical mail to
+							encourage thoughtful correspondence between friends.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">AI-readable design system for Missive</h3>
+						<p>
+							Built an AI-readable design system for Missive, combining Figma, design tokens, React
+							components, and Storybook with explicit implementation contracts so coding agents could
+							work independently while preserving design consistency.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Metronome</h3>
+						<p>Designed a teenage engineering inspired metronome. Why not?</p>
+						<img
+							class="project-image"
+							src={`${base}metronome.png`}
+							width="300"
+							height="651"
+							alt="A small metronome device"
+						/>
+					</section>
+				</aside>
+			</div>
 		</main>
+
+		<footer class="page-footer">
+			<Highlight class="highlight" />
+			<p>don’t worry, spiders · I keep house · casually</p>
+		</footer>
 	</div>
 </BaseLayout>
