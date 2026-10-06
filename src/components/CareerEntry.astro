@@ -1,0 +1,36 @@
+---
+interface Props {
+	company: string;
+	href?: string;
+	summary: string;
+	titles: string[];
+	points: string[];
+}
+
+const { company, href, summary, titles, points } = Astro.props;
+const icon = `${import.meta.env.BASE_URL}icon-open.svg`;
+---
+
+<article class="cv-job">
+	<header class="cv-job-header">
+		<h3 class="cv-company">
+			{
+				href ? (
+					<a href={href} target="_blank" rel="noreferrer">
+						{company}
+					</a>
+				) : (
+					<span>{company}</span>
+				)
+			}
+			{href && <img src={icon} width="24" height="24" alt="" />}
+		</h3>
+		<p class="cv-summary">{summary}</p>
+		<ul class="cv-titles">
+			{titles.map((title) => <li>{title}</li>)}
+		</ul>
+	</header>
+	<ul class="cv-points">
+		{points.map((point) => <li set:html={point} />)}
+	</ul>
+</article>
