@@ -1,11 +1,207 @@
 ---
-import SiteHeader from "../components/SiteHeader.astro";
+import CareerHighlight from "../components/CareerHighlight.astro";
+import Highlight from "../components/Highlight.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const roles = [
+	{
+		company: "Odaia",
+		href: "https://www.odaia.ai",
+		role: "Director, Product & Product Design",
+		summary:
+			"Built ODAIA’s Product Design function and later took on leadership of Product and Design. Managed three designers and three product managers while remaining hands-on in product strategy, research, AI product design, and AI first design systems.",
+		tags: [
+			"B2B Design",
+			"Product & Design Leadership",
+			"People Leadership",
+			"AI Products",
+			"AI First Design System",
+			"AI Design Operations",
+			"End-to-End Design",
+		],
+	},
+	{
+		company: "Loopio",
+		href: "https://www.loopio.com",
+		role: "Director of Product Design",
+		summary:
+			"Joined as Loopio’s first designer, owned the core product experience, and later hired and managed a team of three designers. Worked closely with the founders on product strategy while establishing the company’s design system, design practice, and cross-functional development model.",
+		tags: [
+			"B2B Design",
+			"Design Leadership",
+			"People Leadership",
+			"Knowledge Systems",
+			"Design Systems",
+			"Enterprise SaaS",
+			"Multi-Role UX",
+			"End-to-End Design",
+		],
+	},
+	{
+		company: "Top Hat",
+		href: "https://tophat.com",
+		role: "Principle Product Designer",
+		summary:
+			"First and only designer through Series A, B, and C, responsible for the student and professor experience across web, mobile, SMS, iOS, and Android. Led product and platform design as Top Hat grew from a classroom response system into a broader education platform.",
+		tags: [
+			"B2B & B2C Design",
+			"Platform Design",
+			"EdTech",
+			"Mobile Design",
+			"Design Systems",
+			"Front-End Developer",
+			"Multi-Role UX",
+			"End-to-End Design",
+		],
+	},
+	{
+		company: "Straight Line Phobia",
+		role: "Product Design consulting",
+		summary:
+			"Worked with early-stage companies to turn emerging ideas and customer needs into coherent products. Often operated as the entire design function, shaping product direction and designing workflows from initial concept through launch.",
+		tags: ["0-1 Product Design", "Product Strategy", "End-to-End Design"],
+	},
+];
 ---
 
-<BaseLayout title="Hello World" description="A personal portfolio.">
-	<SiteHeader />
-	<main>
-		<h1>Hello World</h1>
-	</main>
+<BaseLayout
+	title="Ryan William Snow"
+	description="Question everything. Care about the details."
+>
+	<div class="page">
+		<header class="page-header">
+			<img class="logo" src={`${base}logo.svg`} width="151" height="144" alt="Hazzini" />
+		</header>
+
+		<main class="main-content">
+			<div class="home-main">
+				<article class="essay">
+					<header class="essay-header">
+						<h1>Question everything. Care about the details.</h1>
+						<p class="subhead">
+							I believe in a healthy irreverence for constraints no one can explain, and a deep
+							respect for the details that help people understand and trust a product.
+						</p>
+					</header>
+					<div class="essay-body">
+						<p>
+							I’ve spent much of my career working on complex B2B products, and one pattern keeps
+							showing up: products accumulate assumptions. A workflow designed for one customer
+							becomes a convention. A technical limitation becomes a product rule. A configuration
+							option becomes something everyone assumes users need. Over time, those decisions can
+							harden into facts about the product. Teams learn to work around them rather than
+							revisit whether they still reflect how people actually think and work.
+						</p>
+						<p>
+							I’ve learned to make questioning the constraints around a problem part of how I work.
+							Which constraints are real, and which are inherited assumptions we’ve stopped
+							questioning? What is the user actually trying to accomplish? Does the system reflect
+							how people really think and work? Are we solving the problem, or just making a
+							symptom easier to live with? Some of my strongest work has come from stepping outside
+							those constraints and realizing that the product model, the system, or our approach to
+							the problem needed to change.
+						</p>
+						<p>
+							Stepping back from the interface doesn’t make the details less important. If anything,
+							it makes them more meaningful. I’m wary of words like craft and delight when they
+							become shorthand for “make it nicer.” They matter when they’re doing something useful
+							you can point to: reducing friction, building trust, making a system easier to learn,
+							or helping someone act with more confidence.
+						</p>
+						<p>
+							The details are where people feel that the product was made with them in mind. Someone
+							thought about this, anticipated what they needed, and cared enough to get it right.
+						</p>
+					</div>
+					<a class="more-writing" href="#writing">
+						More writing
+						<img src={`${base}icon-arrow.svg`} width="17" height="13" alt="" />
+					</a>
+				</article>
+
+				<aside class="panel">
+					<section class="panel-block">
+						<p class="name">Ryan<br />William<br />Snow</p>
+						<p class="panel-copy">
+							I’m a product design leader with 14+ years of experience building complex B2B SaaS and
+							AI products. Much of my work involves turning complex data and system logic into
+							products people can understand, trust, and act on. I’ve been a first design hire, built
+							teams and design systems from scratch, and led both designers and product managers
+							while staying hands-on in product strategy and design.
+						</p>
+						<nav class="link-list" aria-label="Personal">
+							<a href="#about">About</a>
+							<a href="#writing">Writing</a>
+							<a href="#art">Art</a>
+						</nav>
+					</section>
+					<section class="panel-block">
+						<h2 class="panel-heading">Work</h2>
+						<nav class="link-list" aria-label="Work">
+							<a href="#work">Work</a>
+							<a href="#cv">CV</a>
+						</nav>
+					</section>
+				</aside>
+			</div>
+
+			<Highlight class="section-mark" />
+
+			<div class="career-layout">
+				<section class="career" aria-labelledby="career-heading">
+					<header class="career-header">
+						<h2 id="career-heading">Career Overview</h2>
+						<nav class="link-row" aria-label="Career">
+							<a href="#work">Work</a>
+							<a href="#cv">CV</a>
+						</nav>
+					</header>
+					{roles.map((role) => <CareerHighlight {...role} />)}
+				</section>
+
+				<aside class="projects">
+					<header class="projects-intro">
+						<h2>Projects</h2>
+						<p>Various side projects of note.</p>
+					</header>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://missive.to" target="_blank" rel="noreferrer">Missive</a>
+							<img src={`${base}icon-open.svg`} width="16" height="16" alt="" />
+						</h3>
+						<p>
+							Designed and built Missive with Anson, an experiment in slower, more intentional
+							digital communication that borrows the rituals and anticipation of physical mail to
+							encourage thoughtful correspondence between friends.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">AI-readable design system for Missive</h3>
+						<p>
+							Built an AI-readable design system for Missive, combining Figma, design tokens, React
+							components, and Storybook with explicit implementation contracts so coding agents could
+							work independently while preserving design consistency.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Metronome</h3>
+						<p>Designed a teenage engineering inspired metronome. Why not?</p>
+						<img
+							class="project-image"
+							src={`${base}metronome.png`}
+							width="300"
+							height="651"
+							alt="A small metronome device"
+						/>
+					</section>
+				</aside>
+			</div>
+		</main>
+
+		<footer class="page-footer">
+			<Highlight class="highlight" />
+			<p>don’t worry, spiders · I keep house · casually</p>
+		</footer>
+	</div>
 </BaseLayout>
