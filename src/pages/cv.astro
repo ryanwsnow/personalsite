@@ -68,7 +68,7 @@ const roles = [
 
 <BaseLayout
 	title="CV · Ryan William Snow"
-	description="I believe in a healthy irreverence for constraints no one can explain, and a deep respect for the details that help people understand and trust a product."
+	description="I’m a product design leader with 14+ years of experience building complex B2B SaaS and AI products. Much of my work involves turning complex data and system logic into products people can understand, trust, and act on."
 >
 	<div class="page">
 		<header class="page-header">
@@ -81,10 +81,16 @@ const roles = [
 			<div class="home-main">
 				<article class="cv">
 					<header class="cv-header">
-						<h1>CV (resumé)</h1>
-						<p class="subhead">
-							I believe in a healthy irreverence for constraints no one can explain, and a deep
-							respect for the details that help people understand and trust a product.
+						<h1>
+							Ryan William Snow<br />
+							CV (resumé)
+						</h1>
+						<p class="cv-intro">
+							I’m a product design leader with 14+ years of experience building complex B2B SaaS and
+							AI products. Much of my work involves turning complex data and system logic into
+							products people can understand, trust, and act on. I’ve been a first design hire, built
+							teams and design systems from scratch, and led both designers and product managers
+							while staying hands-on in product strategy and design.
 						</p>
 					</header>
 
@@ -92,32 +98,43 @@ const roles = [
 
 					<div class="cv-jobs">
 						{roles.map((role) => <CareerEntry {...role} />)}
-						<h2 class="cv-heading">Experience</h2>
 					</div>
 				</article>
 
-				<aside class="panel">
-					<section class="panel-block">
-						<p class="name">Ryan<br />William<br />Snow</p>
-						<p class="panel-copy">
-							I’m a product design leader with 14+ years of experience building complex B2B SaaS and
-							AI products. Much of my work involves turning complex data and system logic into
-							products people can understand, trust, and act on. I’ve been a first design hire, built
-							teams and design systems from scratch, and led both designers and product managers
-							while staying hands-on in product strategy and design.
+				<aside class="projects">
+					<header class="projects-intro">
+						<h2>Projects</h2>
+						<p>Various side projects of note.</p>
+					</header>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://missive.to" target="_blank" rel="noreferrer">Missive</a>
+							<img src={`${base}icon-open.svg`} width="16" height="16" alt="" />
+						</h3>
+						<p>
+							Designed and built Missive with Anson, an experiment in slower, more intentional
+							digital communication that borrows the rituals and anticipation of physical mail to
+							encourage thoughtful correspondence between friends.
 						</p>
-						<nav class="link-list" aria-label="Personal">
-							<a href="/#about">About</a>
-							<a href="/#writing">Writing</a>
-							<a href="/#art">Art</a>
-						</nav>
 					</section>
-					<section class="panel-block">
-						<h2 class="panel-heading">Work</h2>
-						<nav class="link-list" aria-label="Work">
-							<a href="/#work">Work</a>
-							<a href="/cv" aria-current="page">CV</a>
-						</nav>
+					<section class="project">
+						<h3 class="project-title">AI-readable design system for Missive</h3>
+						<p>
+							Built an AI-readable design system for Missive, combining Figma, design tokens, React
+							components, and Storybook with explicit implementation contracts so coding agents could
+							work independently while preserving design consistency.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Metronome</h3>
+						<p>Designed a teenage engineering inspired metronome. Why not?</p>
+						<img
+							class="project-image"
+							src={`${base}metronome.png`}
+							width="300"
+							height="651"
+							alt="A small metronome device"
+						/>
 					</section>
 				</aside>
 			</div>
