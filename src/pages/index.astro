@@ -143,8 +143,11 @@ const roles = [
 				<section class="career" aria-labelledby="career-heading">
 					<header class="career-header">
 						<h2 id="career-heading">Career Overview</h2>
-						<nav class="link-row" aria-label="Career">
+						<nav class="link-row" aria-label="Career and contact">
 							<a href="/cv">Check out my CV</a>
+							<a href="https://www.linkedin.com/in/ryanwsnow/" target="_blank" rel="noreferrer">
+								Reach me on Linkedin
+							</a>
 						</nav>
 					</header>
 					{roles.map((role) => <CareerHighlight {...role} />)}
@@ -161,7 +164,7 @@ const roles = [
 							<img src={`${base}icon-open.svg`} width="16" height="16" alt="" />
 						</h3>
 						<p>
-							Designed and built Missive with Anson, an experiment in slower, more intentional
+							Designed and built Missive with <a href="https://mackeracher.com" target="_blank" rel="noreferrer">Anson</a>, an experiment in slower, more intentional
 							digital communication that borrows the rituals and anticipation of physical mail to
 							encourage thoughtful correspondence between friends.
 						</p>
@@ -180,8 +183,8 @@ const roles = [
 						<img
 							class="project-image"
 							src={`${base}metronome.png`}
-							width="300"
-							height="651"
+							width="326"
+							height="707"
 							alt="A small metronome device"
 						/>
 					</section>
