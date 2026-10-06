@@ -10,6 +10,12 @@
 	--tag: #0c0d0f;
 	--sans: "Be Vietnam Pro", "Segoe UI", sans-serif;
 	--serif: Newsreader, Georgia, serif;
+	--page-width: 956px;
+	--reading-width: 570px;
+	--sidebar-width: 326px;
+	--layout-gap: 48px;
+	--section-gap: 64px;
+	--page-gutter: 32px;
 }
 
 * {
@@ -34,7 +40,7 @@ a:focus-visible {
 }
 
 .page {
-	width: min(956px, calc(100% - 32px));
+	width: min(var(--page-width), calc(100% - var(--page-gutter)));
 	margin-inline: auto;
 }
 
@@ -54,17 +60,17 @@ a:focus-visible {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 64px;
+	gap: var(--section-gap);
 }
 
 .home-main {
 	display: flex;
-	gap: 48px;
+	gap: var(--layout-gap);
 	align-items: flex-start;
 }
 
 .essay {
-	width: 570px;
+	width: var(--reading-width);
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
@@ -121,7 +127,7 @@ h1 {
 }
 
 .panel {
-	width: 326px;
+	width: var(--sidebar-width);
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
@@ -201,13 +207,16 @@ h1 {
 
 .career-layout {
 	display: flex;
-	gap: 48px;
+	gap: var(--layout-gap);
 	align-items: flex-start;
-	width: min(944px, 100%);
+	width: min(
+		calc(var(--reading-width) + var(--layout-gap) + var(--sidebar-width)),
+		100%
+	);
 }
 
 .career {
-	width: 570px;
+	width: var(--reading-width);
 	flex: none;
 	display: flex;
 	flex-direction: column;
@@ -215,7 +224,7 @@ h1 {
 }
 
 .projects {
-	width: 326px;
+	width: var(--sidebar-width);
 	flex: none;
 	display: flex;
 	flex-direction: column;
@@ -327,7 +336,7 @@ h1 {
 	justify-content: space-between;
 	gap: 16px;
 	width: 100%;
-	margin-top: 64px;
+	margin-top: var(--section-gap);
 	padding: 16px;
 }
 
@@ -369,6 +378,11 @@ h1 {
 }
 
 @media (max-width: 980px) {
+	.page {
+		max-width: var(--reading-width);
+		width: min(var(--reading-width), calc(100% - var(--page-gutter)));
+	}
+
 	.page-header {
 		padding: 48px 0 72px;
 	}
