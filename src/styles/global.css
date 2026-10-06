@@ -10,12 +10,14 @@
 	--tag: #0c0d0f;
 	--sans: "Be Vietnam Pro", "Segoe UI", sans-serif;
 	--serif: Newsreader, Georgia, serif;
-	--page-width: 956px;
 	--reading-width: 570px;
 	--sidebar-width: 326px;
 	--layout-gap: 48px;
+	--layout-pad: 16px;
 	--section-gap: 64px;
-	--page-gutter: 32px;
+	--page-width: calc(
+		var(--reading-width) + var(--layout-gap) + var(--sidebar-width) + (2 * var(--layout-pad))
+	);
 }
 
 * {
@@ -40,7 +42,7 @@ a:focus-visible {
 }
 
 .page {
-	width: min(var(--page-width), calc(100% - var(--page-gutter)));
+	width: min(var(--page-width), 100%);
 	margin-inline: auto;
 }
 
@@ -63,10 +65,13 @@ a:focus-visible {
 	gap: var(--section-gap);
 }
 
-.home-main {
+.home-main,
+.career-layout {
 	display: flex;
 	gap: var(--layout-gap);
 	align-items: flex-start;
+	width: 100%;
+	padding-inline: var(--layout-pad);
 }
 
 .essay {
@@ -85,7 +90,6 @@ a:focus-visible {
 h1,
 .subhead,
 .name,
-.panel-heading,
 .career-header h2,
 .role-title,
 .role-meta,
@@ -149,17 +153,18 @@ h1 {
 	color: var(--body);
 }
 
-.link-list,
+.portrait {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 15px;
+}
+
 .link-row {
 	display: flex;
 	gap: 16px;
 }
 
-.link-list {
-	flex-direction: column;
-}
-
-.link-list a,
 .link-row a {
 	font-family: var(--serif);
 	font-size: 16px;
@@ -168,34 +173,8 @@ h1 {
 	text-underline-offset: 0.12em;
 }
 
-.panel-heading,
 .career-header h2 {
 	margin: 0;
-}
-
-.panel-heading {
-	font-size: 20px;
-	line-height: 28px;
-}
-
-.more-writing {
-	display: inline-flex;
-	align-items: center;
-	gap: 10px;
-	width: fit-content;
-	padding: 8px 16px;
-	border-radius: 5px;
-	background: var(--tag);
-	color: rgba(255, 255, 255, 0.5);
-	font-family: var(--sans);
-	font-size: 16px;
-	line-height: 24px;
-	text-decoration: none;
-}
-
-.more-writing img {
-	width: 17px;
-	height: 13px;
 }
 
 .section-mark,
@@ -203,16 +182,6 @@ h1 {
 	display: block;
 	width: 146px;
 	height: 24px;
-}
-
-.career-layout {
-	display: flex;
-	gap: var(--layout-gap);
-	align-items: flex-start;
-	width: min(
-		calc(var(--reading-width) + var(--layout-gap) + var(--sidebar-width)),
-		100%
-	);
 }
 
 .career {
@@ -326,8 +295,107 @@ h1 {
 .role-title a,
 .role-title span {
 	color: var(--text);
+}
+
+.role-title a {
 	text-decoration: underline;
 	text-underline-offset: 0.12em;
+}
+
+.cv {
+	width: var(--reading-width);
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.cv-header {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.cv-heading {
+	margin: 0;
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 400;
+}
+
+.cv-jobs {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+}
+
+.cv-job,
+.cv-job-header,
+.cv-titles {
+	display: flex;
+	flex-direction: column;
+}
+
+.cv-job {
+	gap: 24px;
+}
+
+.cv-job-header,
+.cv-titles {
+	gap: 8px;
+}
+
+.cv-company {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 400;
+}
+
+.cv-company a,
+.cv-company span,
+.cv-mention {
+	color: var(--text);
+}
+
+.cv-company a,
+.cv-mention {
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+.cv-company img {
+	width: 24px;
+	height: 24px;
+	margin: 8px;
+}
+
+.cv-intro,
+.cv-summary,
+.cv-points {
+	margin: 0;
+	font-family: var(--serif);
+	font-size: 18px;
+	line-height: 28px;
+	color: var(--body);
+}
+
+.cv-titles {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.cv-points {
+	padding-left: 27px;
+	list-style: disc;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
 .page-footer {
@@ -337,7 +405,7 @@ h1 {
 	gap: 16px;
 	width: 100%;
 	margin-top: var(--section-gap);
-	padding: 16px;
+	padding: var(--layout-pad);
 }
 
 .page-footer p {
@@ -379,8 +447,8 @@ h1 {
 
 @media (max-width: 980px) {
 	.page {
-		max-width: var(--reading-width);
-		width: min(var(--reading-width), calc(100% - var(--page-gutter)));
+		max-width: calc(var(--reading-width) + (2 * var(--layout-pad)));
+		width: 100%;
 	}
 
 	.page-header {
@@ -392,7 +460,8 @@ h1 {
 	.essay,
 	.panel,
 	.career,
-	.projects {
+	.projects,
+	.cv {
 		width: 100%;
 	}
 

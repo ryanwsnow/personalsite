@@ -1,0 +1,148 @@
+---
+import CareerEntry from "../components/CareerEntry.astro";
+import Highlight from "../components/Highlight.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const roles = [
+	{
+		company: "Odaia",
+		href: "https://www.odaia.ai",
+		summary: "AI and data products for pharmaceutical commercial teams.",
+		titles: [
+			"Director, Product & Product Design · Jan 2026 – Aug 2026",
+			"Product Design Manager · May 2023 – Jan 2026",
+			"Product Design Lead · Jun 2022 – May 2023",
+		],
+		points: [
+			"Built the Product Design function from the ground up",
+			"Hired and led a high-performing team of product designers and product managers",
+			"Owned recruiting, performance management, career development, design strategy, and team culture",
+			"Established the design process and operating model",
+			"Helped reposition the product strategy toward product-market fit",
+			"Reframed the role of AI within the product strategy",
+			"Defined the direction and framework for an AI-native design system",
+			"Integrated repeatable AI workflows into Product and Design",
+			"Helped evolve how Product, Design, and Engineering worked together as the company scaled",
+			"Remained hands-on, designing map-based HCP discovery, Territory Overview, and the first versions of Coach for sales leaders and Marketing Intelligence for marketers",
+		],
+	},
+	{
+		company: "Straight Line Phobia",
+		summary: "0-to-1 product strategy and design for early-stage companies.",
+		titles: ["Founder · Jul 2019 – 2022"],
+		points: [
+			"Led Kritik’s product design from v0 through a complete v1, defining the core experience from assignment setup through peer evaluation, feedback, and revision",
+			"Helped early-stage teams turn customer feedback and emerging ideas into coherent products and end-to-end workflows",
+			'Selected clients included <span class="cv-mention">Kritik</span> and <span class="cv-mention">LegalMate</span>',
+		],
+	},
+	{
+		company: "Loopio",
+		href: "https://www.loopio.com",
+		summary: "Enterprise software for responding to RFPs using a shared library of approved content.",
+		titles: ["Director of Product Design · Jun 2017 – Mar 2019"],
+		points: [
+			"Joined as Loopio’s first designer, owned the core product experience, and later hired and managed a team of three designers",
+			"Built Loopio’s design function and culture from the ground up, hiring and managing its first three designers",
+			"Built Loopio’s first design system and established the governance, maintenance practices, and team ownership needed to scale it",
+			"Helped establish cross-functional teams with Product, Design, and Engineering as equal partners",
+			"Embedded performance feedback and career development into regular one-on-ones and coaching, making growth continuous rather than a once-a-year review",
+			"Remained hands-on in the product, designing connected workflows for importing, finding, maintaining, reconciling, and governing enterprise knowledge. The core features remain part of Loopio today",
+		],
+	},
+	{
+		company: "Top Hat",
+		href: "https://tophat.com",
+		summary: "Education technology for classroom engagement, assessment, and digital content.",
+		titles: ["Principal Product Designer · May 2012 – Jun 2017"],
+		points: [
+			"First and only designer through Series A, B, and C, owning the student and professor experience across web, mobile web, native Apps, and SMS",
+			"Designed Top Hat’s end-to-end platform and information architecture, creating a shared content model that supported its expansion from classroom response into presentations, homework, testing, and digital textbooks. The underlying structure remains part of the platform today",
+			"Designed Top Hat’s first native iOS and Android applications",
+			"Built the company’s first design system and helped introduce React and reusable presentational components",
+		],
+	},
+];
+---
+
+<BaseLayout
+	title="CV · Ryan William Snow"
+	description="I’m a product design leader with 14+ years of experience building complex B2B SaaS and AI products. Much of my work involves turning complex data and system logic into products people can understand, trust, and act on."
+>
+	<div class="page">
+		<header class="page-header">
+			<a href="/">
+				<img class="logo" src={`${base}logo.svg`} width="151" height="144" alt="Hazzini" />
+			</a>
+		</header>
+
+		<main class="main-content">
+			<div class="home-main">
+				<article class="cv">
+					<header class="cv-header">
+						<h1>
+							Ryan William Snow<br />
+							CV (resumé)
+						</h1>
+						<p class="cv-intro">
+							I’m a product design leader with 14+ years of experience building complex B2B SaaS and
+							AI products. Much of my work involves turning complex data and system logic into
+							products people can understand, trust, and act on. I’ve been a first design hire, built
+							teams and design systems from scratch, and led both designers and product managers
+							while staying hands-on in product strategy and design.
+						</p>
+					</header>
+
+					<h2 class="cv-heading">Experience</h2>
+
+					<div class="cv-jobs">
+						{roles.map((role) => <CareerEntry {...role} />)}
+					</div>
+				</article>
+
+				<aside class="projects">
+					<header class="projects-intro">
+						<h2>Projects</h2>
+						<p>Various side projects of note.</p>
+					</header>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://missive.to" target="_blank" rel="noreferrer">Missive</a>
+							<img src={`${base}icon-open.svg`} width="16" height="16" alt="" />
+						</h3>
+						<p>
+							Designed and built Missive with Anson, an experiment in slower, more intentional
+							digital communication that borrows the rituals and anticipation of physical mail to
+							encourage thoughtful correspondence between friends.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">AI-readable design system for Missive</h3>
+						<p>
+							Built an AI-readable design system for Missive, combining Figma, design tokens, React
+							components, and Storybook with explicit implementation contracts so coding agents could
+							work independently while preserving design consistency.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Metronome</h3>
+						<p>Designed a teenage engineering inspired metronome. Why not?</p>
+						<img
+							class="project-image"
+							src={`${base}metronome.png`}
+							width="300"
+							height="651"
+							alt="A small metronome device"
+						/>
+					</section>
+				</aside>
+			</div>
+		</main>
+
+		<footer class="page-footer">
+			<Highlight class="highlight" />
+			<p>don’t worry, spiders · I keep house · casually</p>
+		</footer>
+	</div>
+</BaseLayout>
