@@ -53,9 +53,26 @@ a:focus-visible {
 }
 
 .logo {
-	display: block;
+	display: flex;
+	flex-direction: column;
 	width: 151px;
 	height: 144px;
+}
+
+.logo-bug,
+.logo-highlight {
+	display: block;
+	width: 100%;
+}
+
+.logo-bug {
+	height: calc(144px * 67.0713 / 156.043);
+	margin-top: calc(144px * 42.50945 / 156.043);
+}
+
+.logo-highlight {
+	height: calc(144px * 25.773125 / 156.043);
+	margin-top: calc(144px * 20.689125 / 156.043);
 }
 
 .main-content {
