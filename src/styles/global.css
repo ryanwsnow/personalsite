@@ -50,12 +50,102 @@ a:focus-visible {
 	display: flex;
 	justify-content: center;
 	padding: 64px 0 128px;
+	position: relative;
+	z-index: 2;
+	overflow: visible;
 }
 
 .logo {
-	display: block;
+	display: flex;
+	flex-direction: column;
 	width: 151px;
 	height: 144px;
+	overflow: visible;
+}
+
+.logo-bug,
+.logo-highlight {
+	display: block;
+	width: 100%;
+}
+
+.logo-bug {
+	height: calc(144px * 67.0713 / 156.043);
+	margin-top: calc(144px * 42.50945 / 156.043);
+}
+
+.logo-highlight {
+	position: relative;
+	height: calc(144px * 25.773125 / 156.043);
+	margin-top: calc(144px * 20.689125 / 156.043);
+	overflow: visible;
+	pointer-events: none;
+}
+
+.logo-highlight svg {
+	--fall: 62vh;
+	--duration: 2.8s;
+	--lag: 0s;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	transition:
+		transform var(--duration) cubic-bezier(0.22, 0.15, 0.36, 1) var(--lag),
+		opacity calc(var(--duration) * 0.75) ease calc(var(--lag) + 0.55s);
+}
+
+.logo-highlight path {
+	stroke: white;
+	stroke-width: 1.77225;
+	stroke-linecap: round;
+}
+
+.logo-highlight svg:nth-child(1) { --fall: 48vh; --duration: 2.5s; --lag: 0s; }
+.logo-highlight svg:nth-child(2) { --fall: 74vh; --duration: 3.3s; --lag: 0.18s; }
+.logo-highlight svg:nth-child(3) { --fall: 58vh; --duration: 2.9s; --lag: 0.42s; }
+.logo-highlight svg:nth-child(4) { --fall: 82vh; --duration: 3.5s; --lag: 0.12s; }
+.logo-highlight svg:nth-child(5) { --fall: 66vh; --duration: 3.1s; --lag: 0.7s; }
+.logo-highlight svg:nth-child(6) { --fall: 54vh; --duration: 2.7s; --lag: 0.34s; }
+.logo-highlight svg:nth-child(7) { --fall: 78vh; --duration: 3.4s; --lag: 0.86s; }
+.logo-highlight svg:nth-child(8) { --fall: 61vh; --duration: 3s; --lag: 0.55s; }
+.logo-highlight svg:nth-child(9) { --fall: 88vh; --duration: 3.6s; --lag: 0.28s; }
+
+.logo.is-scrolled .logo-highlight svg {
+	transform: translate(var(--shift-x, 0px), var(--shift-y, var(--fall)));
+	opacity: var(--land, 0);
+}
+
+.page:has(.logo.is-scrolled) .section-mark {
+	opacity: 0;
+}
+
+.section-mark,
+.highlight {
+	transition: opacity 0.45s ease;
+}
+
+.page:has(.logo.is-footer) .highlight {
+	opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.logo-highlight svg,
+	.section-mark,
+	.highlight {
+		transition: none;
+	}
+
+	.logo.is-scrolled .logo-highlight svg {
+		transform: none;
+		opacity: 0;
+	}
+
+	.page:has(.logo.is-scrolled) .section-mark,
+	.page:has(.logo.is-footer) .highlight {
+		opacity: 1;
+	}
 }
 
 .main-content {

@@ -1,0 +1,66 @@
+---
+interface Props {
+	href?: string;
+}
+
+const { href } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const Tag = href ? "a" : "div";
+---
+
+<Tag class="logo" href={href}>
+	<img class="logo-bug" src={`${base}logo-bug.svg`} width="157" height="67" alt="Hazzini" />
+	<span class="logo-highlight" aria-hidden="true">
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M4.8933 131.156L4.8933 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M19.5144 131.156L19.5144 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M34.071 131.156L34.071 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M57.6042 131.156L47.9005 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M84.4642 133.954L65.1847 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M97.4289 131.156L97.4289 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M108.969 132.279L118.605 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M124.185 134.751L137.177 155.156" /></svg>
+		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M151.04 131.156L151.04 155.156" /></svg>
+	</span>
+</Tag>
+
+<script>
+	const logos = document.querySelectorAll(".logo");
+	const highlight = document.querySelector(".logo-highlight");
+	const mark = document.querySelector(".section-mark");
+	const footer = document.querySelector(".page-footer .highlight");
+	let atFooter = false;
+
+	function shiftTo(target) {
+		if (!highlight || !target) return;
+		const from = highlight.getBoundingClientRect();
+		const to = target.getBoundingClientRect();
+		const x = Math.round(to.left + to.width / 2 - (from.left + from.width / 2));
+		const y = Math.round(to.top + to.height / 2 - (from.top + from.height / 2));
+		highlight.style.setProperty("--shift-x", `${x}px`);
+		highlight.style.setProperty("--shift-y", `${y}px`);
+		highlight.style.setProperty("--land", "0.4");
+	}
+
+	function updateHighlight() {
+		const scrolled = window.scrollY > 8;
+
+		if (mark) {
+			const markTop = mark.getBoundingClientRect().top;
+			if (markTop < window.innerHeight * 0.22) atFooter = true;
+			if (markTop > window.innerHeight * 0.55 || !scrolled) atFooter = false;
+		} else {
+			atFooter = false;
+		}
+
+		shiftTo(atFooter && footer ? footer : mark);
+
+		logos.forEach((logo) => {
+			logo.classList.toggle("is-scrolled", scrolled);
+			logo.classList.toggle("is-footer", scrolled && atFooter);
+		});
+	}
+
+	updateHighlight();
+	window.addEventListener("scroll", updateHighlight, { passive: true });
+	window.addEventListener("resize", updateHighlight);
+</script>

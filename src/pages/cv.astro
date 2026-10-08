@@ -1,6 +1,7 @@
 ---
 import CareerEntry from "../components/CareerEntry.astro";
 import Highlight from "../components/Highlight.astro";
+import Logo from "../components/Logo.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL;
@@ -72,9 +73,7 @@ const roles = [
 >
 	<div class="page">
 		<header class="page-header">
-			<a href="/">
-				<img class="logo" src={`${base}logo.svg`} width="151" height="144" alt="Hazzini" />
-			</a>
+			<Logo href="/" />
 		</header>
 
 		<main class="main-content">
@@ -133,14 +132,16 @@ const roles = [
 							<a href="https://metronome.ryanwsnow.com" target="_blank" rel="noreferrer">Metronome</a>
 							<img src={`${base}icon-open.svg`} width="16" height="16" alt="" />
 						</h3>
-						<p>Designed a teenage engineering inspired metronome. Why not?</p>
-						<img
-							class="project-image"
-							src={`${base}metronome.png`}
-							width="326"
-							height="707"
-							alt="A small metronome device"
-						/>
+						<p>An experiment to see how faithfully Cursor could translate a fairly complex Figma design into code.</p>
+						<a href="https://metronome.ryanwsnow.com" target="_blank" rel="noreferrer">
+							<img
+								class="project-image"
+								src={`${base}metronome.png`}
+								width="430"
+								height="932"
+								alt="Metronome"
+							/>
+						</a>
 					</section>
 				</aside>
 			</div>
