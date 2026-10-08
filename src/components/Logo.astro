@@ -24,43 +24,15 @@ const Tag = href ? "a" : "div";
 </Tag>
 
 <script>
-	const logos = document.querySelectorAll(".logo");
-	const highlight = document.querySelector(".logo-highlight");
-	const mark = document.querySelector(".section-mark");
-	const footer = document.querySelector(".page-footer .highlight");
-	let atFooter = false;
+	let settle;
 
-	function shiftTo(target) {
-		if (!highlight || !target) return;
-		const from = highlight.getBoundingClientRect();
-		const to = target.getBoundingClientRect();
-		const x = Math.round(to.left + to.width / 2 - (from.left + from.width / 2));
-		const y = Math.round(to.top + to.height / 2 - (from.top + from.height / 2));
-		highlight.style.setProperty("--shift-x", `${x}px`);
-		highlight.style.setProperty("--shift-y", `${y}px`);
-		highlight.style.setProperty("--land", "0.4");
+	function onScroll() {
+		document.documentElement.classList.add("is-scrolling");
+		clearTimeout(settle);
+		settle = setTimeout(() => {
+			document.documentElement.classList.remove("is-scrolling");
+		}, 160);
 	}
 
-	function updateHighlight() {
-		const scrolled = window.scrollY > 8;
-
-		if (mark) {
-			const markTop = mark.getBoundingClientRect().top;
-			if (markTop < window.innerHeight * 0.22) atFooter = true;
-			if (markTop > window.innerHeight * 0.55 || !scrolled) atFooter = false;
-		} else {
-			atFooter = false;
-		}
-
-		shiftTo(atFooter && footer ? footer : mark);
-
-		logos.forEach((logo) => {
-			logo.classList.toggle("is-scrolled", scrolled);
-			logo.classList.toggle("is-footer", scrolled && atFooter);
-		});
-	}
-
-	updateHighlight();
-	window.addEventListener("scroll", updateHighlight, { passive: true });
-	window.addEventListener("resize", updateHighlight);
+	window.addEventListener("scroll", onScroll, { passive: true });
 </script>
