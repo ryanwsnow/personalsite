@@ -83,17 +83,11 @@ a:focus-visible {
 }
 
 .logo-highlight svg {
-	--fall: 62vh;
-	--duration: 2.8s;
-	--lag: 0s;
 	position: absolute;
 	inset: 0;
 	width: 100%;
 	height: 100%;
 	overflow: visible;
-	transition:
-		transform var(--duration) cubic-bezier(0.22, 0.15, 0.36, 1) var(--lag),
-		opacity calc(var(--duration) * 0.75) ease calc(var(--lag) + 0.55s);
 }
 
 .logo-highlight path {
@@ -102,49 +96,68 @@ a:focus-visible {
 	stroke-linecap: round;
 }
 
-.logo-highlight svg:nth-child(1) { --fall: 48vh; --duration: 2.5s; --lag: 0s; }
-.logo-highlight svg:nth-child(2) { --fall: 74vh; --duration: 3.3s; --lag: 0.18s; }
-.logo-highlight svg:nth-child(3) { --fall: 58vh; --duration: 2.9s; --lag: 0.42s; }
-.logo-highlight svg:nth-child(4) { --fall: 82vh; --duration: 3.5s; --lag: 0.12s; }
-.logo-highlight svg:nth-child(5) { --fall: 66vh; --duration: 3.1s; --lag: 0.7s; }
-.logo-highlight svg:nth-child(6) { --fall: 54vh; --duration: 2.7s; --lag: 0.34s; }
-.logo-highlight svg:nth-child(7) { --fall: 78vh; --duration: 3.4s; --lag: 0.86s; }
-.logo-highlight svg:nth-child(8) { --fall: 61vh; --duration: 3s; --lag: 0.55s; }
-.logo-highlight svg:nth-child(9) { --fall: 88vh; --duration: 3.6s; --lag: 0.28s; }
-
-.logo.is-scrolled .logo-highlight svg {
-	transform: translate(var(--shift-x, 0px), var(--shift-y, var(--fall)));
-	opacity: var(--land, 0);
+html.is-scrolling .logo-highlight svg,
+html.is-scrolling .section-mark path,
+html.is-scrolling .highlight path {
+	animation: line-wiggle var(--wiggle-time) ease-in-out infinite;
+	animation-delay: var(--wiggle-delay);
 }
 
-.page:has(.logo.is-scrolled) .section-mark {
-	opacity: 0;
+.logo-highlight svg:nth-child(1) { --tilt: 8deg; --wiggle-time: 0.36s; --wiggle-delay: 0s; transform-origin: 3% 50%; }
+.logo-highlight svg:nth-child(2) { --tilt: -6deg; --wiggle-time: 0.44s; --wiggle-delay: 0.04s; transform-origin: 12% 50%; }
+.logo-highlight svg:nth-child(3) { --tilt: 7deg; --wiggle-time: 0.4s; --wiggle-delay: 0.09s; transform-origin: 22% 50%; }
+.logo-highlight svg:nth-child(4) { --tilt: -9deg; --wiggle-time: 0.48s; --wiggle-delay: 0.02s; transform-origin: 34% 50%; }
+.logo-highlight svg:nth-child(5) { --tilt: 6deg; --wiggle-time: 0.38s; --wiggle-delay: 0.11s; transform-origin: 48% 50%; }
+.logo-highlight svg:nth-child(6) { --tilt: -7deg; --wiggle-time: 0.42s; --wiggle-delay: 0.06s; transform-origin: 62% 50%; }
+.logo-highlight svg:nth-child(7) { --tilt: 9deg; --wiggle-time: 0.5s; --wiggle-delay: 0.13s; transform-origin: 72% 50%; }
+.logo-highlight svg:nth-child(8) { --tilt: -5deg; --wiggle-time: 0.34s; --wiggle-delay: 0.08s; transform-origin: 83% 50%; }
+.logo-highlight svg:nth-child(9) { --tilt: 8deg; --wiggle-time: 0.46s; --wiggle-delay: 0.03s; transform-origin: 96% 50%; }
+
+.section-mark path,
+.highlight path {
+	transform-box: fill-box;
+	transform-origin: center;
 }
 
-.section-mark,
-.highlight {
-	transition: opacity 0.45s ease;
-}
+.section-mark path:nth-child(1),
+.highlight path:nth-child(1) { --tilt: 8deg; --wiggle-time: 0.36s; --wiggle-delay: 0s; }
+.section-mark path:nth-child(2),
+.highlight path:nth-child(2) { --tilt: -6deg; --wiggle-time: 0.44s; --wiggle-delay: 0.04s; }
+.section-mark path:nth-child(3),
+.highlight path:nth-child(3) { --tilt: 7deg; --wiggle-time: 0.4s; --wiggle-delay: 0.09s; }
+.section-mark path:nth-child(4),
+.highlight path:nth-child(4) { --tilt: -9deg; --wiggle-time: 0.48s; --wiggle-delay: 0.02s; }
+.section-mark path:nth-child(5),
+.highlight path:nth-child(5) { --tilt: 6deg; --wiggle-time: 0.38s; --wiggle-delay: 0.11s; }
+.section-mark path:nth-child(6),
+.highlight path:nth-child(6) { --tilt: -7deg; --wiggle-time: 0.42s; --wiggle-delay: 0.06s; }
+.section-mark path:nth-child(7),
+.highlight path:nth-child(7) { --tilt: 9deg; --wiggle-time: 0.5s; --wiggle-delay: 0.13s; }
+.section-mark path:nth-child(8),
+.highlight path:nth-child(8) { --tilt: -5deg; --wiggle-time: 0.34s; --wiggle-delay: 0.08s; }
+.section-mark path:nth-child(9),
+.highlight path:nth-child(9) { --tilt: 8deg; --wiggle-time: 0.46s; --wiggle-delay: 0.03s; }
 
-.page:has(.logo.is-footer) .highlight {
-	opacity: 0;
+@keyframes line-wiggle {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+
+	35% {
+		transform: rotate(var(--tilt));
+	}
+
+	70% {
+		transform: rotate(calc(var(--tilt) * -1));
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.logo-highlight svg,
-	.section-mark,
-	.highlight {
-		transition: none;
-	}
-
-	.logo.is-scrolled .logo-highlight svg {
-		transform: none;
-		opacity: 0;
-	}
-
-	.page:has(.logo.is-scrolled) .section-mark,
-	.page:has(.logo.is-footer) .highlight {
-		opacity: 1;
+	html.is-scrolling .logo-highlight svg,
+	html.is-scrolling .section-mark path,
+	html.is-scrolling .highlight path {
+		animation: none;
 	}
 }
 
@@ -272,6 +285,7 @@ h1 {
 	display: block;
 	width: 146px;
 	height: 24px;
+	overflow: visible;
 }
 
 .career {
