@@ -121,13 +121,19 @@ a:focus-visible {
 	opacity: 0;
 }
 
-.section-mark {
+.section-mark,
+.highlight {
 	transition: opacity 0.45s ease;
+}
+
+.page:has(.logo.is-footer) .highlight {
+	opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.logo-highlight svg,
-	.section-mark {
+	.section-mark,
+	.highlight {
 		transition: none;
 	}
 
@@ -136,7 +142,8 @@ a:focus-visible {
 		opacity: 0;
 	}
 
-	.page:has(.logo.is-scrolled) .section-mark {
+	.page:has(.logo.is-scrolled) .section-mark,
+	.page:has(.logo.is-footer) .highlight {
 		opacity: 1;
 	}
 }
