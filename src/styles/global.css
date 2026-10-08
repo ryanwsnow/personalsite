@@ -113,17 +113,31 @@ a:focus-visible {
 .logo-highlight svg:nth-child(9) { --fall: 88vh; --duration: 3.6s; --lag: 0.28s; }
 
 .logo.is-scrolled .logo-highlight svg {
-	transform: translateY(var(--fall));
+	transform: translate(var(--shift-x, 0px), var(--shift-y, var(--fall)));
+	opacity: var(--land, 0);
+}
+
+.page:has(.logo.is-scrolled) .section-mark {
 	opacity: 0;
 }
 
+.section-mark {
+	transition: opacity 0.45s ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
-	.logo-highlight svg {
+	.logo-highlight svg,
+	.section-mark {
 		transition: none;
 	}
 
 	.logo.is-scrolled .logo-highlight svg {
 		transform: none;
+		opacity: 0;
+	}
+
+	.page:has(.logo.is-scrolled) .section-mark {
+		opacity: 1;
 	}
 }
 
