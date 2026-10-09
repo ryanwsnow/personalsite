@@ -389,6 +389,27 @@ h1 {
 	gap: 8px;
 }
 
+.archive-list {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.archive-project {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.archive-project h4 {
+	margin: 0;
+	font-family: var(--sans);
+	font-weight: 400;
+	font-size: var(--type-label-size);
+	line-height: var(--type-label-line);
+	color: var(--color-text-secondary);
+}
+
 .projects-intro h2,
 .project-title {
 	margin: 0;

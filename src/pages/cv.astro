@@ -6,7 +6,6 @@ import Logo from "../components/Logo.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const base = import.meta.env.BASE_URL;
 const roles = [
 	{
 		company: "Odaia",
@@ -136,15 +135,29 @@ const roles = [
 							<IconOpen />
 						</h3>
 						<p>An experiment to see how faithfully Cursor could translate a fairly complex Figma design into code.</p>
-						<a href="https://metronome.ryanwsnow.com" target="_blank" rel="noreferrer">
-							<img
-								class="project-image"
-								src={`${base}metronome.png`}
-								width="430"
-								height="932"
-								alt="Metronome"
-							/>
-						</a>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Archived (2016-2017)</h3>
+						<div class="archive-list">
+							<article class="archive-project">
+								<h4>Deeptree - Cadence</h4>
+								<p>
+									Cadence was conceived as a simpler, faster alternative to Jira. We built it and
+									used it to manage our own work, but struggled to define a value proposition
+									strong enough for such a competitive market. Realizing the scope was too
+									ambitious for our first product, we narrowed our focus and pivoted to CadenceBot.
+								</p>
+							</article>
+							<article class="archive-project">
+								<h4>Deeptree - Cadencebot</h4>
+								<p>
+									CadenceBot was a Slack app that notified developers when pull requests were ready
+									for review, keeping reviews moving without people having to chase one another. We
+									developed a small user base and successfully applied for funding, but ultimately
+									declined it when the team could not align on the product’s direction and strategy.
+								</p>
+							</article>
+						</div>
 					</section>
 				</aside>
 			</div>
