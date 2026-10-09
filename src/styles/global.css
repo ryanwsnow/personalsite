@@ -4,7 +4,6 @@
 	--bg: var(--color-surface-page);
 	--text: var(--color-text-primary);
 	--link: var(--color-text-primary);
-	--tag: #0c0d0f;
 	--sans: var(--font-sans);
 	--serif: var(--font-serif);
 	--reading-width: 570px;
@@ -646,7 +645,7 @@ h1 {
 .tags li {
 	padding: 8px;
 	border-radius: 5px;
-	background: var(--tag);
+	background: var(--color-surface-secondary);
 	color: var(--color-text-secondary);
 	font-size: var(--type-label-size);
 	line-height: var(--type-label-line);
