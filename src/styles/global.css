@@ -98,6 +98,16 @@ a:focus-visible {
 	outline-offset: 3px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+	html.theme-fade,
+	html.theme-fade * {
+		transition:
+			background-color 0.32s ease,
+			fill 0.32s ease,
+			stroke 0.32s ease;
+	}
+}
+
 .logo {
 	position: relative;
 	z-index: 2;

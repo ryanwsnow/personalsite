@@ -21,9 +21,20 @@
 <script>
 	const root = document.documentElement;
 	const options = document.querySelectorAll<HTMLButtonElement>("[data-theme-value]");
+	let fadeTimer: number | undefined;
 
 	function applyTheme(theme: string) {
 		const next = theme === "light" ? "light" : "dark";
+		const changing = root.dataset.theme !== next;
+		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+		if (changing && !reduceMotion) {
+			root.classList.add("theme-fade");
+			void root.offsetWidth;
+			window.clearTimeout(fadeTimer);
+			fadeTimer = window.setTimeout(() => root.classList.remove("theme-fade"), 320);
+		}
+
 		root.dataset.theme = next;
 		localStorage.setItem("theme", next);
 		options.forEach((option) => {
