@@ -1,5 +1,5 @@
 :root {
-	color-scheme: light;
+	color-scheme: dark;
 
 	/* Primitives */
 	--neutral-0: #ffffff;
@@ -19,11 +19,16 @@
 	--neutral-98: #070809;
 	--neutral-100: #030304;
 
-	/* Tokens, light */
-	--color-text-primary: var(--neutral-90);
+	/* Tokens, dark */
+	--color-text-primary: var(--neutral-1);
 	--color-text-secondary: var(--neutral-40);
 	--color-text-tertiary: var(--neutral-80);
-	--color-surface-page: var(--neutral-0);
+	--color-surface-page: var(--neutral-100);
+	--color-button-default-fill: var(--neutral-40);
+	--color-button-hover-fill: var(--neutral-40);
+	--color-button-hover-bg: var(--neutral-95);
+	--color-button-active-fill: var(--neutral-1);
+	--color-button-active-bg: var(--neutral-95);
 
 	--font-sans: "Be Vietnam Pro", "Segoe UI", sans-serif;
 	--font-serif: Newsreader, Georgia, serif;
@@ -48,16 +53,19 @@
 	--type-caption-line: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
+:root[data-theme="light"] {
+	color-scheme: light;
 
-		/* Tokens, dark */
-		--color-text-primary: var(--neutral-1);
-		--color-text-secondary: var(--neutral-40);
-		--color-text-tertiary: var(--neutral-80);
-		--color-surface-page: var(--neutral-100);
-	}
+	/* Tokens, light */
+	--color-text-primary: var(--neutral-90);
+	--color-text-secondary: var(--neutral-40);
+	--color-text-tertiary: var(--neutral-80);
+	--color-surface-page: var(--neutral-0);
+	--color-button-default-fill: var(--neutral-70);
+	--color-button-hover-fill: var(--neutral-70);
+	--color-button-hover-bg: var(--neutral-10);
+	--color-button-active-fill: var(--neutral-98);
+	--color-button-active-bg: var(--neutral-20);
 }
 
 .display,

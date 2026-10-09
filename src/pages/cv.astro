@@ -3,6 +3,7 @@ import CareerEntry from "../components/CareerEntry.astro";
 import IconOpen from "../components/IconOpen.astro";
 import Highlight from "../components/Highlight.astro";
 import Logo from "../components/Logo.astro";
+import ThemeSelector from "../components/ThemeSelector.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL;
@@ -74,6 +75,7 @@ const roles = [
 >
 	<div class="page">
 		<header class="page-header">
+			<ThemeSelector />
 			<Logo href="/" />
 		</header>
 

@@ -1,0 +1,42 @@
+---
+---
+
+<div class="theme-selector" role="group" aria-label="Color theme">
+	<button class="theme-option" type="button" data-theme-value="dark" aria-pressed="true" aria-label="Dark theme">
+		<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+			<path
+				d="M12.1 22C10.7 22 9.3875 21.7333 8.1625 21.2C6.9375 20.6667 5.87083 19.9458 4.9625 19.0375C4.05417 18.1292 3.33333 17.0625 2.8 15.8375C2.26667 14.6125 2 13.3 2 11.9C2 9.46667 2.775 7.32083 4.325 5.4625C5.875 3.60417 7.85 2.45 10.25 2C9.95 3.65 10.0417 5.2625 10.525 6.8375C11.0083 8.4125 11.8417 9.79167 13.025 10.975C14.2083 12.1583 15.5875 12.9917 17.1625 13.475C18.7375 13.9583 20.35 14.05 22 13.75C21.5667 16.15 20.4167 18.125 18.55 19.675C16.6833 21.225 14.5333 22 12.1 22ZM12.1 20C13.5667 20 14.925 19.6333 16.175 18.9C17.425 18.1667 18.4083 17.1583 19.125 15.875C17.6917 15.7417 16.3333 15.3792 15.05 14.7875C13.7667 14.1958 12.6167 13.3917 11.6 12.375C10.5833 11.3583 9.775 10.2083 9.175 8.925C8.575 7.64167 8.21667 6.28333 8.1 4.85C6.81667 5.56667 5.8125 6.55417 5.0875 7.8125C4.3625 9.07083 4 10.4333 4 11.9C4 14.15 4.7875 16.0625 6.3625 17.6375C7.9375 19.2125 9.85 20 12.1 20Z"
+				fill="currentColor"></path>
+		</svg>
+	</button>
+	<button class="theme-option" type="button" data-theme-value="light" aria-pressed="false" aria-label="Light theme">
+		<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+			<path
+				d="M12 23.3L8.65 20H4V15.35L0.699997 12L4 8.65V4H8.65L12 0.700001L15.35 4H20V8.65L23.3 12L20 15.35V20H15.35L12 23.3ZM15.5375 15.5375C16.5125 14.5625 17 13.3833 17 12C17 10.6167 16.5125 9.4375 15.5375 8.4625C14.5625 7.4875 13.3833 7 12 7C10.6167 7 9.4375 7.4875 8.4625 8.4625C7.4875 9.4375 7 10.6167 7 12C7 13.3833 7.4875 14.5625 8.4625 15.5375C9.4375 16.5125 10.6167 17 12 17C13.3833 17 14.5625 16.5125 15.5375 15.5375ZM9.875 14.125C9.29166 13.5417 9 12.8333 9 12C9 11.1667 9.29166 10.4583 9.875 9.875C10.4583 9.29167 11.1667 9 12 9C12.8333 9 13.5417 9.29167 14.125 9.875C14.7083 10.4583 15 11.1667 15 12C15 12.8333 14.7083 13.5417 14.125 14.125C13.5417 14.7083 12.8333 15 12 15C11.1667 15 10.4583 14.7083 9.875 14.125ZM12 20.5L14.5 18H18V14.5L20.5 12L18 9.5V6H14.5L12 3.5L9.5 6H6V9.5L3.5 12L6 14.5V18H9.5L12 20.5Z"
+				fill="currentColor"></path>
+		</svg>
+	</button>
+</div>
+
+<script>
+	const root = document.documentElement;
+	const options = document.querySelectorAll<HTMLButtonElement>("[data-theme-value]");
+
+	function applyTheme(theme: string) {
+		const next = theme === "light" ? "light" : "dark";
+		root.dataset.theme = next;
+		localStorage.setItem("theme", next);
+		options.forEach((option) => {
+			option.setAttribute("aria-pressed", String(option.dataset.themeValue === next));
+		});
+	}
+
+	options.forEach((option) => {
+		option.addEventListener("click", () => {
+			const theme = option.dataset.themeValue;
+			if (theme) applyTheme(theme);
+		});
+	});
+
+	applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+</script>
