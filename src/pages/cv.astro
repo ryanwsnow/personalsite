@@ -1,8 +1,8 @@
 ---
 import CareerEntry from "../components/CareerEntry.astro";
 import IconOpen from "../components/IconOpen.astro";
-import Highlight from "../components/Highlight.astro";
 import Logo from "../components/Logo.astro";
+import PageFooter from "../components/PageFooter.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -163,9 +163,6 @@ const roles = [
 			</div>
 		</main>
 
-		<footer class="page-footer">
-			<Highlight class="highlight" />
-			<p>don’t worry, spiders · I keep house · casually</p>
-		</footer>
+		<PageFooter />
 	</div>
 </BaseLayout>
