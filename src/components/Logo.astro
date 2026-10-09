@@ -4,12 +4,13 @@ interface Props {
 }
 
 const { href } = Astro.props;
-const base = import.meta.env.BASE_URL;
 const Tag = href ? "a" : "div";
 ---
 
 <Tag class="logo" href={href}>
-	<img class="logo-bug" src={`${base}logo-bug.svg`} width="157" height="67" alt="Hazzini" />
+	<svg class="logo-bug" width="157" height="67" viewBox="0 42.509 157.107 67.071" fill="none" role="img" aria-label="Hazzini">
+		<path d="M68.7725 73.1272L42.0285 46.3829L34.387 99.8734L3.82098 76.9507M68.7725 73.1272L68.7737 46.3829M68.7725 73.1272L68.7725 92.2319L98.1644 83.0755M98.1644 83.0755C109.348 63.7054 109.437 63.6691 118.851 46.3302L153.287 65.4433L98.1644 83.0755ZM98.1644 83.0755C96.5627 85.8497 86.8885 102.633 85.0831 105.76" stroke="currentColor" stroke-width="7.6415" stroke-linecap="round" stroke-linejoin="round" />
+	</svg>
 	<span class="logo-highlight" aria-hidden="true">
 		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M4.8933 131.156L4.8933 155.156" /></svg>
 		<svg viewBox="0 130.27 157.107 25.773" fill="none" preserveAspectRatio="none"><path d="M19.5144 131.156L19.5144 155.156" /></svg>

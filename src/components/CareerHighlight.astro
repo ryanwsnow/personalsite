@@ -1,4 +1,6 @@
 ---
+import IconOpen from "./IconOpen.astro";
+
 interface Props {
 	company: string;
 	href?: string;
@@ -8,7 +10,6 @@ interface Props {
 }
 
 const { company, href, role, summary, tags } = Astro.props;
-const icon = `${import.meta.env.BASE_URL}icon-open.svg`;
 ---
 
 <article class="role">
@@ -23,7 +24,7 @@ const icon = `${import.meta.env.BASE_URL}icon-open.svg`;
 					<span>{company}</span>
 				)
 			}
-			{href && <img src={icon} width="16" height="16" alt="" />}
+			{href && <IconOpen />}
 		</h3>
 		<p class="role-meta">{role}</p>
 	</header>
