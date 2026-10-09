@@ -61,8 +61,8 @@
 	--color-text-primary: var(--neutral-90);
 	--color-text-secondary: var(--neutral-40);
 	--color-text-tertiary: var(--neutral-80);
-	--color-surface-page: var(--neutral-0);
-	--color-surface-secondary: var(--neutral-5);
+	--color-surface-page: var(--neutral-1);
+	--color-surface-secondary: var(--neutral-3);
 	--color-button-default-fill: var(--neutral-70);
 	--color-button-hover-fill: var(--neutral-70);
 	--color-button-hover-bg: var(--neutral-3);
