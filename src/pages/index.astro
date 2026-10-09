@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import CareerHighlight from "../components/CareerHighlight.astro";
 import IconOpen from "../components/IconOpen.astro";
 import Highlight from "../components/Highlight.astro";
@@ -6,8 +7,9 @@ import Logo from "../components/Logo.astro";
 import PageFooter from "../components/PageFooter.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import metronome from "../assets/metronome.png";
+import portrait from "../assets/portrait.jpg";
 
-const base = import.meta.env.BASE_URL;
 const roles = [
 	{
 		company: "Odaia",
@@ -131,11 +133,11 @@ const roles = [
 							teams and design systems from scratch, and led both designers and product managers
 							while staying hands-on in product strategy and design.
 						</p>
-						<img
+						<Image
 							class="portrait"
-							src={`${base}portrait.jpg`}
-							width="326"
-							height="518"
+							src={portrait}
+							layout="constrained"
+							loading="eager"
 							alt="Ryan William Snow sitting at a cafe"
 						/>
 					</section>
@@ -189,11 +191,10 @@ const roles = [
 						</h3>
 						<p>An experiment to see how faithfully Cursor could translate a fairly complex Figma design into code.</p>
 						<a href="https://metronome.ryanwsnow.com" target="_blank" rel="noreferrer">
-							<img
+							<Image
 								class="project-image"
-								src={`${base}metronome.png`}
-								width="430"
-								height="932"
+								src={metronome}
+								layout="constrained"
 								alt="Metronome"
 							/>
 						</a>

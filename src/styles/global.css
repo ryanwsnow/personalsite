@@ -105,6 +105,13 @@ a:focus-visible {
 			fill 0.32s ease,
 			stroke 0.32s ease;
 	}
+
+	.theme-option,
+	.footer-chip {
+		transition:
+			background-color 0.35s ease,
+			color 0.35s ease;
+	}
 }
 
 .logo {
