@@ -4,7 +4,6 @@
 	--bg: var(--color-surface-page);
 	--text: var(--color-text-primary);
 	--link: var(--color-text-primary);
-	--tag: #0c0d0f;
 	--sans: var(--font-sans);
 	--serif: var(--font-serif);
 	--reading-width: 570px;
@@ -22,6 +21,7 @@
 }
 
 body {
+	position: relative;
 	margin: 0;
 	background: var(--bg);
 	color: var(--text);
@@ -47,12 +47,69 @@ a:focus-visible {
 	display: flex;
 	justify-content: center;
 	padding: 64px 0 128px;
-	position: relative;
-	z-index: 2;
 	overflow: visible;
 }
 
+.theme-selector {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.theme-option {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	padding: 8px;
+	border: 0;
+	border-radius: 5px;
+	background: transparent;
+	color: var(--color-button-default-fill);
+	cursor: pointer;
+}
+
+.theme-option svg {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
+.theme-option:hover {
+	background: var(--color-button-hover-bg);
+	color: var(--color-button-hover-fill);
+}
+
+.theme-option[aria-pressed="true"],
+.theme-option[aria-pressed="true"]:hover {
+	background: var(--color-button-active-bg);
+	color: var(--color-button-active-fill);
+}
+
+.theme-option:focus-visible {
+	outline: 2px solid var(--text);
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html.theme-fade,
+	html.theme-fade * {
+		transition:
+			background-color 0.32s ease,
+			fill 0.32s ease,
+			stroke 0.32s ease;
+	}
+}
+
 .logo {
+	position: relative;
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	width: 151px;
@@ -331,6 +388,27 @@ h1 {
 	gap: 8px;
 }
 
+.archive-list {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.archive-project {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.archive-project h4 {
+	margin: 0;
+	font-family: var(--sans);
+	font-weight: 400;
+	font-size: var(--type-label-size);
+	line-height: var(--type-label-line);
+	color: var(--color-text-secondary);
+}
+
 .projects-intro h2,
 .project-title {
 	margin: 0;
@@ -567,7 +645,7 @@ h1 {
 .tags li {
 	padding: 8px;
 	border-radius: 5px;
-	background: var(--tag);
+	background: var(--color-surface-secondary);
 	color: var(--color-text-secondary);
 	font-size: var(--type-label-size);
 	line-height: var(--type-label-line);
@@ -580,7 +658,7 @@ h1 {
 	}
 
 	.page-header {
-		padding: 48px 0 72px;
+		padding: 64px 0 72px;
 	}
 
 	.home-main,
