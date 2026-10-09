@@ -63,9 +63,9 @@
 	--color-surface-page: var(--neutral-0);
 	--color-button-default-fill: var(--neutral-70);
 	--color-button-hover-fill: var(--neutral-70);
-	--color-button-hover-bg: var(--neutral-10);
+	--color-button-hover-bg: var(--neutral-3);
 	--color-button-active-fill: var(--neutral-98);
-	--color-button-active-bg: var(--neutral-20);
+	--color-button-active-bg: var(--neutral-5);
 }
 
 .display,
