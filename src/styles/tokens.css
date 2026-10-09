@@ -1,0 +1,133 @@
+:root {
+	color-scheme: light;
+
+	/* Primitives */
+	--neutral-0: #ffffff;
+	--neutral-1: #fcfcfd;
+	--neutral-3: #f1f2f4;
+	--neutral-5: #dfe3e7;
+	--neutral-10: #bcc4cb;
+	--neutral-20: #99a5b0;
+	--neutral-30: #8694a2;
+	--neutral-40: #6f8090;
+	--neutral-70: #5b6976;
+	--neutral-80: #454f59;
+	--neutral-85: #374048;
+	--neutral-90: #292f35;
+	--neutral-93: #1b1f23;
+	--neutral-95: #121417;
+	--neutral-98: #070809;
+	--neutral-100: #030304;
+
+	/* Tokens, light */
+	--color-text-primary: var(--neutral-90);
+	--color-text-secondary: var(--neutral-40);
+	--color-text-tertiary: var(--neutral-80);
+	--color-surface-page: var(--neutral-0);
+
+	--font-sans: "Be Vietnam Pro", "Segoe UI", sans-serif;
+	--font-serif: Newsreader, Georgia, serif;
+
+	--type-display-size: 48px;
+	--type-display-line: 56px;
+	--type-heading-large-size: 32px;
+	--type-heading-large-line: 40px;
+	--type-heading-medium-size: 24px;
+	--type-heading-medium-line: 32px;
+	--type-heading-small-size: 20px;
+	--type-heading-small-line: 28px;
+	--type-body-large-size: 18px;
+	--type-body-large-line: 28px;
+	--type-body-default-size: 16px;
+	--type-body-default-line: 24px;
+	--type-body-small-size: 14px;
+	--type-body-small-line: 20px;
+	--type-label-size: 14px;
+	--type-label-line: 20px;
+	--type-caption-size: 12px;
+	--type-caption-line: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+
+		/* Tokens, dark */
+		--color-text-primary: var(--neutral-1);
+		--color-text-secondary: var(--neutral-40);
+		--color-text-tertiary: var(--neutral-80);
+		--color-surface-page: var(--neutral-100);
+	}
+}
+
+.display,
+.heading-large,
+.heading-medium,
+.heading-small,
+.label,
+.caption,
+.caption-emphasis {
+	font-family: var(--font-sans);
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0;
+}
+
+.body-large,
+.body-default,
+.body-small {
+	font-family: var(--font-serif);
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0;
+}
+
+.display {
+	font-size: var(--type-display-size);
+	line-height: var(--type-display-line);
+}
+
+.heading-large {
+	font-size: var(--type-heading-large-size);
+	line-height: var(--type-heading-large-line);
+}
+
+.heading-medium {
+	font-size: var(--type-heading-medium-size);
+	line-height: var(--type-heading-medium-line);
+}
+
+.heading-small {
+	font-size: var(--type-heading-small-size);
+	line-height: var(--type-heading-small-line);
+}
+
+.body-large {
+	font-size: var(--type-body-large-size);
+	line-height: var(--type-body-large-line);
+}
+
+.body-default {
+	font-size: var(--type-body-default-size);
+	line-height: var(--type-body-default-line);
+}
+
+.body-small {
+	font-size: var(--type-body-small-size);
+	line-height: var(--type-body-small-line);
+}
+
+.label {
+	font-size: var(--type-label-size);
+	line-height: var(--type-label-line);
+}
+
+.caption,
+.caption-emphasis {
+	font-size: var(--type-caption-size);
+	line-height: var(--type-caption-line);
+}
+
+.caption-emphasis {
+	font-weight: 500;
+}
