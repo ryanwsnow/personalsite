@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import CaseStudy from "../components/CaseStudy.astro";
 import Highlight from "../components/Highlight.astro";
 import IconOpen from "../components/IconOpen.astro";
@@ -7,12 +6,10 @@ import Logo from "../components/Logo.astro";
 import PageFooter from "../components/PageFooter.astro";
 import ThemeSelector from "../components/ThemeSelector.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import portrait from "../assets/portrait.jpg";
 
 const studies = [
 	{
-		title: "Knowing when to question the product model",
-		linked: true,
+		title: "A small request that uncovered a big problem",
 		meta: "ODAIA: Director, Product & Product Design",
 		summary:
 			"How I redirected a team from explaining ODAIA’s targeting system to investigating whether its model served customers’ needs. Research revealed costly workarounds and helped us build alignment for deeper product changes.",
@@ -24,14 +21,13 @@ const studies = [
 		],
 	},
 	{
-		title: "Turning prescribing insights into reasons to act (coming soon)",
+		title: "Turning prescribing insights into reasons to act",
 		meta: "ODAIA: Product Design Manager",
 		summary:
 			"How we reframed prescribing behaviour insights around risk and opportunity, then redesigned their explanations to help pharmaceutical sales representatives understand why an insight mattered and what they could do next.",
 	},
 	{
 		title: "The redesign professors had to trust",
-		linked: true,
 		meta: "Top Hat: Product Designer",
 		summary:
 			"Separated reusable content from delivery to support Top Hat’s expansion into new teaching products. Classroom research revealed why professors struggled with the transition and guided a more predictable presentation experience.",
@@ -151,18 +147,7 @@ const companies = [
 			<div class="home-main">
 				<article class="work">
 					<header class="work-header">
-						<h1>Case Studies</h1>
-						<p class="work-intro">Select work projects I made into case studies.</p>
-					</header>
-
-					<div class="study-list">
-						{studies.map((study) => <CaseStudy {...study} />)}
-					</div>
-
-					<Highlight class="section-mark" />
-
-					<header class="work-header">
-						<h2>Hands on Work</h2>
+						<h1>Hands on Work</h1>
 						<p class="work-intro">
 							My hands-on product design work, from shaping product architecture and workflows to
 							refining interactions and visual details.
@@ -172,42 +157,87 @@ const companies = [
 					{
 						companies.map((company) => (
 							<section class="work-company">
-								<h3 class="role-title">
+								<h2 class="role-title">
 									<a href={company.href} target="_blank" rel="noreferrer">
 										{company.company}
 									</a>
 									<IconOpen />
-								</h3>
+								</h2>
 								<p class="role-summary">{company.summary}</p>
 								<div class="study-list">
 									{company.studies.map((study) => (
-										<CaseStudy {...study} heading="h4" />
+										<CaseStudy {...study} heading="h3" />
 									))}
 								</div>
 							</section>
 						))
 					}
+
+					<Highlight class="section-mark" />
+
+					<header class="work-header">
+						<h2>Case Studies</h2>
+						<p class="work-intro">Select work projects I made into case studies. Coming Soon.</p>
+					</header>
+
+					<div class="study-list">
+						{studies.map((study) => <CaseStudy {...study} heading="h3" />)}
+					</div>
 				</article>
 
-				<aside class="panel">
-					<section class="panel-block">
-						<p class="name">Ryan<br />William<br />Snow</p>
-						<p class="panel-copy">
-							I’m a product design leader with 14+ years of experience building complex B2B SaaS and
-							AI products. Much of my work involves turning complex data and system logic into
-							products people can understand, trust, and act on. I’ve been a first design hire, built
-							teams and design systems from scratch, and led both designers and product managers
-							while staying hands-on in product strategy and design.
+				<aside class="projects">
+					<header class="projects-intro">
+						<h2>Projects</h2>
+						<p>Various side projects of note.</p>
+					</header>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://missive.to" target="_blank" rel="noreferrer">Missive</a>
+							<IconOpen />
+						</h3>
+						<p>
+							Designed and built Missive with <a href="https://mackeracher.com" target="_blank" rel="noreferrer">Anson</a>, an experiment in slower, more intentional
+							digital communication that borrows the rituals and anticipation of physical mail to
+							encourage thoughtful correspondence between friends.
 						</p>
-						<nav class="panel-nav" aria-label="Pages">
-							<a href="/cv">CV</a>
-						</nav>
-						<Image
-							class="portrait"
-							src={portrait}
-							layout="constrained"
-							alt="Ryan William Snow sitting at a cafe"
-						/>
+					</section>
+					<section class="project">
+						<h3 class="project-title">AI-readable design system for Missive</h3>
+						<p>
+							Built an AI-readable design system for Missive, combining Figma, design tokens, React
+							components, and Storybook with explicit implementation contracts so coding agents could
+							work independently while preserving design consistency.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://metronome.ryanwsnow.com" target="_blank" rel="noreferrer">Metronome</a>
+							<IconOpen />
+						</h3>
+						<p>An experiment to see how faithfully Cursor could translate a fairly complex Figma design into code.</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Archived (2016-2017)</h3>
+						<div class="archive-list">
+							<article class="archive-project">
+								<h4>Deeptree - Cadence</h4>
+								<p>
+									Cadence was conceived as a simpler, faster alternative to Jira. We built it and
+									used it to manage our own work, but struggled to define a value proposition
+									strong enough for such a competitive market. Realizing the scope was too
+									ambitious for our first product, we narrowed our focus and pivoted to CadenceBot.
+								</p>
+							</article>
+							<article class="archive-project">
+								<h4>Deeptree - Cadencebot</h4>
+								<p>
+									CadenceBot was a Slack app that notified developers when pull requests were ready
+									for review, keeping reviews moving without people having to chase one another. We
+									developed a small user base and successfully applied for funding, but ultimately
+									declined it when the team could not align on the product’s direction and strategy.
+								</p>
+							</article>
+						</div>
 					</section>
 				</aside>
 			</div>

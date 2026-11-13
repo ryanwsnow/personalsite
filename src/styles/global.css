@@ -757,9 +757,9 @@ h1 {
 
 .work-intro {
 	margin: 0;
-	font-family: var(--sans);
-	font-size: var(--type-heading-small-size);
-	line-height: var(--type-heading-small-line);
+	font-family: var(--serif);
+	font-size: var(--type-body-large-size);
+	line-height: var(--type-body-large-line);
 	font-weight: 400;
 }
 
