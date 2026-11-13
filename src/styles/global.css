@@ -86,8 +86,10 @@ a:focus-visible {
 	color: var(--color-button-hover-fill);
 }
 
-.theme-option[aria-pressed="true"],
-.theme-option[aria-pressed="true"]:hover {
+:root:not([data-theme="light"]) .theme-option[data-theme-value="dark"],
+:root:not([data-theme="light"]) .theme-option[data-theme-value="dark"]:hover,
+:root[data-theme="light"] .theme-option[data-theme-value="light"],
+:root[data-theme="light"] .theme-option[data-theme-value="light"]:hover {
 	background: var(--color-button-active-bg);
 	color: var(--color-button-active-fill);
 }
