@@ -1,0 +1,28 @@
+---
+interface Props {
+	title: string;
+	linked?: boolean;
+	meta?: string;
+	summary: string;
+	tags?: string[];
+	heading?: "h2" | "h3" | "h4";
+}
+
+const { title, linked = false, meta, summary, tags = [], heading = "h2" } = Astro.props;
+const Title = heading;
+---
+
+<article class="study">
+	<Title class:list={["study-title", { "is-link": linked }]}>{title}</Title>
+	{meta && <p class="role-meta">{meta}</p>}
+	<p class="role-summary">{summary}</p>
+	{
+		tags.length > 0 && (
+			<ul class="tags">
+				{tags.map((tag) => (
+					<li>{tag}</li>
+				))}
+			</ul>
+		)
+	}
+</article>

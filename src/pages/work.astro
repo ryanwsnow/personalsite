@@ -1,0 +1,254 @@
+---
+import CaseStudy from "../components/CaseStudy.astro";
+import Highlight from "../components/Highlight.astro";
+import IconOpen from "../components/IconOpen.astro";
+import Logo from "../components/Logo.astro";
+import PageFooter from "../components/PageFooter.astro";
+import ThemeSelector from "../components/ThemeSelector.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const studies = [
+	{
+		title: "A small request that uncovered a big problem",
+		meta: "ODAIA: Director, Product & Product Design",
+		summary:
+			"How I redirected a team from explaining ODAIA’s targeting system to investigating whether its model served customers’ needs. Research revealed costly workarounds and helped us build alignment for deeper product changes.",
+		tags: [
+			"Product judgement",
+			"Team leadership",
+			"Systems thinking",
+			"Cross-functional influence",
+		],
+	},
+	{
+		title: "Turning prescribing insights into reasons to act",
+		meta: "ODAIA: Product Design Manager",
+		summary:
+			"How we reframed prescribing behaviour insights around risk and opportunity, then redesigned their explanations to help pharmaceutical sales representatives understand why an insight mattered and what they could do next.",
+	},
+	{
+		title: "The redesign professors had to trust",
+		meta: "Top Hat: Product Designer",
+		summary:
+			"Separated reusable content from delivery to support Top Hat’s expansion into new teaching products. Classroom research revealed why professors struggled with the transition and guided a more predictable presentation experience.",
+		tags: ["Platform design", "Interaction design", "Research judgement", "Product judgement"],
+	},
+];
+
+const companies = [
+	{
+		company: "Odaia",
+		href: "https://www.odaia.ai",
+		summary:
+			"My hands-on product design work at ODAIA included field planning, territory analysis, sales coaching, and early Marketing Intelligence concepts, helping pharmaceutical commercial teams understand complex data and put insights into practice.",
+		studies: [
+			{
+				title: "Finding nearby HCPs and planning field visits",
+				summary:
+					"Designed v1 of map-based discovery and routing, putting insights ahead of supporting data to help sales representatives identify nearby healthcare professionals, understand reasons to visit, and plan efficient driving routes.",
+			},
+			{
+				title: "Finding where to focus within a territory",
+				summary:
+					"Designed v1 of Territory Overview, helping representatives analyze performance by ZIP code or postal region, identify where they were gaining or losing ground, and decide where to focus each month.",
+			},
+			{
+				title: "Coach Product: Helping sales managers reinforce call-plan adherence",
+				summary:
+					"Designed the first version of Coach, helping sales managers understand whether representatives were following recommended call plans and identify behaviours to reinforce through coaching.",
+			},
+			{
+				title: "Marketing Intelligence Product: Shaping the first Marketing Intelligence concepts",
+				summary:
+					"Worked with Product on discovery, early concepts, and v0 reporting for Marketing Intelligence, which helps pharmaceutical marketers coordinate HCP campaigns and understand their impact on prescribing.",
+			},
+		],
+	},
+	{
+		company: "Loopio",
+		href: "https://www.loopio.com",
+		summary:
+			"I designed connected workflows for importing, finding, and maintaining enterprise knowledge at Loopio, helping teams reuse relevant answers and keep shared content accurate through review and reconciliation.",
+		studies: [
+			{
+				title: "Building a design system the team could sustain",
+				summary:
+					"Built Loopio’s first design system, formed the team to own it, and defined how components would be added, maintained, and adopted as the product grew.",
+			},
+			{
+				title: "Helping teams reconcile competing answers",
+				summary:
+					"Reframed Duplicate Detection around reconciliation, helping users compare competing answers and decide what to keep when neither was necessarily newer or more accurate.",
+			},
+			{
+				title: "Helping teams decide which answers to trust",
+				summary:
+					"Designed Freshness Score to help teams assess stored answers and prioritize review, and helped define the factors, weighting, and decay behind its 0–100 score.",
+			},
+			{
+				title: "Routing knowledge review to the right expertise",
+				summary:
+					"Created Teams and team reviews so customers could assign review work to groups of subject-matter experts, sharing responsibility without needing to identify one person for every task.",
+			},
+			{
+				title: "Making document import easy to review and correct",
+				summary:
+					"Redesigned the highlighting and editing interactions for importing past RFPs, making it easier to correct automatically detected questions and answers and see exactly what would enter the knowledge library.",
+			},
+			{
+				title: "Matching search behaviour to user intent",
+				summary:
+					"Designed search for both precise retrieval and broader discovery, using advanced operators and similar words to help users find answers even when their terminology differed from the stored content.",
+			},
+		],
+	},
+	{
+		company: "Top Hat",
+		href: "https://tophat.com",
+		summary:
+			"As Top Hat’s first and only designer, I owned the student and professor experience across web and mobile. I designed its first iOS and Android apps, defined the information architecture for its expansion beyond classroom response, and built its first design system.",
+		studies: [
+			{
+				title: "Expanding Top Hat beyond classroom response",
+				summary:
+					"As Top Hat’s only designer, led a platform redesign and defined the information architecture for presentations, homework, testing, and digital textbooks, with one reusable content library supporting each teaching context.",
+			},
+			{
+				title: "Designing for the pressure of a live lecture",
+				summary:
+					"Visited universities to observe professors during real lectures and refined Presentation Mode’s states and controls, while supporting the original and redesigned platforms through a transition lasting nearly a year.",
+			},
+			{
+				title: "Designing Top Hat’s first iOS and Android apps",
+				summary:
+					"Designed Top Hat’s first native iOS and Android apps, extending its classroom engagement experience alongside the existing web, mobile web, and SMS workflows.",
+			},
+			{
+				title: "Giving Design and Engineering a shared foundation",
+				summary:
+					"Built Top Hat’s first design system, helped introduce React and reusable components, and coached engineers on Sass and CSS. This gave the team a shared coded reference and improved implementation consistency.",
+			},
+		],
+	},
+];
+---
+
+<BaseLayout
+	title="Work · Ryan William Snow"
+	description="Selected case studies and hands-on product design work."
+>
+	<div class="page">
+		<header class="page-header">
+			<ThemeSelector />
+			<Logo href="/" />
+		</header>
+
+		<main class="main-content">
+			<div class="home-main">
+				<article class="work">
+					<header class="work-header">
+						<h1>Hands on Work</h1>
+						<p class="work-intro">
+							My hands-on product design work, from shaping product architecture and workflows to
+							refining interactions and visual details.
+						</p>
+						<nav class="link-row" aria-label="CV and contact">
+							<a href="/cv">Check out my CV</a>
+							<a href="https://www.linkedin.com/in/ryanwsnow/" target="_blank" rel="noreferrer">
+								Reach me on Linkedin
+							</a>
+						</nav>
+					</header>
+
+					{
+						companies.map((company) => (
+							<section class="work-company">
+								<h2 class="role-title">
+									<a href={company.href} target="_blank" rel="noreferrer">
+										{company.company}
+									</a>
+									<IconOpen />
+								</h2>
+								<p class="role-summary">{company.summary}</p>
+								<div class="study-list">
+									{company.studies.map((study) => (
+										<CaseStudy {...study} heading="h3" />
+									))}
+								</div>
+							</section>
+						))
+					}
+
+					<Highlight class="section-mark" />
+
+					<header class="work-header">
+						<h2>Case Studies</h2>
+						<p class="work-intro">Select work projects I made into case studies. Coming Soon.</p>
+					</header>
+
+					<div class="study-list">
+						{studies.map((study) => <CaseStudy {...study} heading="h3" />)}
+					</div>
+				</article>
+
+				<aside class="projects">
+					<header class="projects-intro">
+						<h2>Projects</h2>
+						<p>Various side projects of note.</p>
+					</header>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://missive.to" target="_blank" rel="noreferrer">Missive</a>
+							<IconOpen />
+						</h3>
+						<p>
+							Designed and built Missive with <a href="https://mackeracher.com" target="_blank" rel="noreferrer">Anson</a>, an experiment in slower, more intentional
+							digital communication that borrows the rituals and anticipation of physical mail to
+							encourage thoughtful correspondence between friends.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">AI-readable design system for Missive</h3>
+						<p>
+							Built an AI-readable design system for Missive, combining Figma, design tokens, React
+							components, and Storybook with explicit implementation contracts so coding agents could
+							work independently while preserving design consistency.
+						</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">
+							<a href="https://metronome.ryanwsnow.com" target="_blank" rel="noreferrer">Metronome</a>
+							<IconOpen />
+						</h3>
+						<p>An experiment to see how faithfully Cursor could translate a fairly complex Figma design into code.</p>
+					</section>
+					<section class="project">
+						<h3 class="project-title">Archived (2016-2017)</h3>
+						<div class="archive-list">
+							<article class="archive-project">
+								<h4>Deeptree - Cadence</h4>
+								<p>
+									Cadence was conceived as a simpler, faster alternative to Jira. We built it and
+									used it to manage our own work, but struggled to define a value proposition
+									strong enough for such a competitive market. Realizing the scope was too
+									ambitious for our first product, we narrowed our focus and pivoted to CadenceBot.
+								</p>
+							</article>
+							<article class="archive-project">
+								<h4>Deeptree - Cadencebot</h4>
+								<p>
+									CadenceBot was a Slack app that notified developers when pull requests were ready
+									for review, keeping reviews moving without people having to chase one another. We
+									developed a small user base and successfully applied for funding, but ultimately
+									declined it when the team could not align on the product’s direction and strategy.
+								</p>
+							</article>
+						</div>
+					</section>
+				</aside>
+			</div>
+		</main>
+
+		<PageFooter />
+	</div>
+</BaseLayout>
